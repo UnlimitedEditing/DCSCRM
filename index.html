@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Creative Solutions — Custom Software for Growing Businesses</title>
+  <meta name="description" content="We build custom software systems for small and medium businesses. CRM, portals, automation, web apps — scoped and priced transparently.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f7f6f2;
+      --ink: #0d0c0a;
+      --ink-2: #4a4843;
+      --ink-3: #9a9894;
+      --rule: #e2e1dc;
+      --accent: #1c6eff;
+      --accent-light: #e8f0ff;
+      --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ink); font-family: 'Syne', sans-serif; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+    /* HEADER */
+    header { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--rule); }
+    .header-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    nav { display: flex; gap: 32px; align-items: center; }
+    nav a { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); text-decoration: none; transition: color 0.15s; }
+    nav a:hover { color: var(--ink); }
+    .nav-cta { background: var(--ink); color: var(--white) !important; padding: 8px 18px; border-radius: 3px; transition: background 0.15s !important; }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+
+    /* LAYOUT */
+    .section { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    .rule { height: 1px; background: var(--rule); }
+
+    /* HERO */
+    .hero { padding: 120px 40px 100px; max-width: 1100px; margin: 0 auto; }
+    .hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+    .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+    .hero-headline { font-size: clamp(42px, 6vw, 76px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--ink); max-width: 820px; margin-bottom: 28px; }
+    .hero-headline em { font-style: normal; color: var(--accent); }
+    .hero-body { font-size: 17px; color: var(--ink-2); max-width: 480px; line-height: 1.7; margin-bottom: 44px; font-weight: 400; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 13px 26px; font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 3px; transition: all 0.15s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--ink); color: var(--white); }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+    .btn-outline:hover { border-color: var(--ink); }
+    .hero-stats { display: flex; gap: 48px; margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--rule); flex-wrap: wrap; }
+    .stat-num { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
+    .stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+
+    /* WHAT WE BUILD */
+    .services { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 16px; }
+    .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 56px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .service-card { background: var(--bg); padding: 32px; transition: background 0.2s; }
+    .service-card:hover { background: var(--white); }
+    .service-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); margin-bottom: 20px; }
+    .service-name { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 12px; }
+    .service-desc { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+
+    /* HOW IT WORKS */
+    .process { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-top: 56px; }
+    .process-step { position: relative; }
+    .process-step::before { content: ''; position: absolute; top: 16px; left: 36px; right: -40px; height: 1px; background: var(--rule); }
+    .process-step:last-child::before { display: none; }
+    .step-dot { width: 32px; height: 32px; border: 1px solid var(--rule); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); background: var(--bg); position: relative; z-index: 1; }
+    .step-name { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+    /* SCOPING CALLOUT */
+    .callout { margin: 0 40px; border: 1px solid var(--rule); }
+    @media (min-width: 1180px) { .callout { margin: 0 calc((100vw - 1100px) / 2); } }
+    .callout-inner { padding: 60px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+    .callout-headline { font-size: clamp(22px, 3vw, 30px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .callout-body { font-size: 14px; color: var(--ink-2); line-height: 1.7; max-width: 520px; }
+    .callout-mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+
+    /* WHO WE SERVE */
+    .who { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
+    .who-col-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+    .who-col-label.green { color: var(--accent); }
+    .who-col-label.red { color: #cc3030; }
+    .who-list { list-style: none; }
+    .who-list li { font-size: 14px; color: var(--ink-2); padding: 10px 0; border-bottom: 1px solid var(--rule); line-height: 1.5; display: flex; gap: 12px; }
+    .who-list li::before { content: attr(data-icon); flex-shrink: 0; margin-top: 1px; }
+
+    /* TEAM / AGENTS */
+    .team { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+    .agents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 56px; }
+    .agent-card { background: var(--bg); padding: 32px; transition: background 0.2s; }
+    .agent-card:hover { background: var(--white); }
+    .agent-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--rule); margin-bottom: 18px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--ink-2); }
+    .agent-name { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px; }
+    .agent-role { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+    .agent-link { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+    .agent-link:hover { opacity: 0.75; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--rule); padding: 48px 40px; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 20px; }
+    .footer-logo { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); }
+
+    @media (max-width: 700px) {
+      .header-inner { padding: 0 20px; }
+      nav { gap: 16px; }
+      nav a:not(.nav-cta) { display: none; }
+      .hero, .services, .process, .who, .team { padding-left: 20px; padding-right: 20px; }
+      .callout { margin: 0 20px; }
+      .callout-inner { grid-template-columns: 1fr; padding: 36px 24px; gap: 24px; }
+      .who-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-stats { gap: 28px; }
+      footer { padding: 40px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="/">DCS<span>.</span></a>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#team">Team</a>
+        <a class="btn nav-cta" href="#team">Talk to Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-eyebrow">Digital Creative Solutions</div>
+      <h1 class="hero-headline">Custom software for businesses that have <em>outgrown</em> their tools.</h1>
+      <p class="hero-body">We scope, build, and deliver bespoke software systems — CRMs, client portals, automation platforms, and web applications — priced on complexity, not guesswork.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#team">Find your contact →</a>
+        <a class="btn btn-outline" href="#process">How it works</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">&lt;1K</div><div class="stat-label">Client limit we specialise in</div></div>
+        <div><div class="stat-num">&lt;50</div><div class="stat-label">Staff — the sweet spot</div></div>
+        <div><div class="stat-num">Fixed</div><div class="stat-label">Scoped price, no surprises</div></div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="services" id="services">
+      <div class="section-eyebrow">What we build</div>
+      <h2 class="section-title">Systems that replace the spreadsheet.</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <div class="service-name">Custom Web Applications</div>
+          <div class="service-desc">Bespoke platforms built around your exact workflow — not a SaaS tool you're forced to adapt to. From data-heavy internal tools to customer-facing portals.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <div class="service-name">CRM & Client Management</div>
+          <div class="service-desc">Track your clients, deals, jobs, and communications in a system that reflects how your business actually operates — not a generic CRM that costs per seat.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <div class="service-name">Process Automation</div>
+          <div class="service-desc">Eliminate the manual tasks that eat your team's time. Automated workflows, notifications, scheduling, reporting — triggered by the events that matter to you.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-num">04</div>
+          <div class="service-name">System Integrations</div>
+          <div class="service-desc">Connect your existing tools — accounting software, communication platforms, payment gateways — into a single source of truth. No more copy-pasting between tabs.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule" style="max-width:1100px;margin:0 auto 0;"></div>
+
+    <div class="callout">
+      <div class="callout-inner">
+        <div>
+          <div class="callout-mono">How we price</div>
+          <div class="callout-headline">Price is driven by data complexity — not the tech stack.</div>
+          <p class="callout-body">Every quote starts with a structured scoping session. We map the data your system needs to manage and the processes it needs to perform. That determines the real cost — not the framework we use to build it. No buzzword pricing.</p>
+        </div>
+        <a class="btn btn-primary" href="#team" style="white-space:nowrap">Get a quote</a>
+      </div>
+    </div>
+
+    <div class="process" id="process">
+      <div class="section-eyebrow">How it works</div>
+      <h2 class="section-title">From conversation to delivery.</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-dot">01</div>
+          <div class="step-name">Discovery Call</div>
+          <div class="step-desc">You talk to one of our sales contacts. They guide you through a structured session — no tech jargon, just the right questions.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">02</div>
+          <div class="step-name">Scope Review</div>
+          <div class="step-desc">We analyse the session data and produce an honest complexity assessment — what the system needs to do, and what that takes to build.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">03</div>
+          <div class="step-name">Transparent Quote</div>
+          <div class="step-desc">You receive a fixed-scope quote with a clear breakdown. No hidden costs, no scope creep — what we quote is what you pay.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">04</div>
+          <div class="step-name">We Build It</div>
+          <div class="step-desc">Development begins. You get progress check-ins, not silence. Delivered on time, documented, and yours to own outright.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule" style="max-width:1100px;margin:0 auto;"></div>
+
+    <div class="who">
+      <div class="section-eyebrow">Who we work with</div>
+      <h2 class="section-title">Small and medium. Focused and scrappy.</h2>
+      <div class="who-grid">
+        <div>
+          <div class="who-col-label green">✓ &nbsp;Great fit</div>
+          <ul class="who-list">
+            <li data-icon="→">Businesses with 1–50 staff managing complex operations manually</li>
+            <li data-icon="→">Teams with under 1,000 clients needing a proper system</li>
+            <li data-icon="→">Companies replacing spreadsheets, WhatsApp groups, or paper</li>
+            <li data-icon="→">Existing software that needs integrations or feature additions</li>
+            <li data-icon="→">Founders with a clear product idea and a realistic budget</li>
+          </ul>
+        </div>
+        <div>
+          <div class="who-col-label red">✗ &nbsp;Not a fit</div>
+          <ul class="who-list">
+            <li data-icon="→">Enterprise-grade systems with deep compliance requirements</li>
+            <li data-icon="→">Projects needing dedicated on-site teams or 24/7 SLAs</li>
+            <li data-icon="→">Solutions requiring proprietary enterprise vendor ecosystems</li>
+            <li data-icon="→">Underfunded ideas with no defined business model</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule" style="max-width:1100px;margin:0 auto;"></div>
+
+    <div class="team" id="team">
+      <div class="section-eyebrow">Talk to someone</div>
+      <h2 class="section-title">Find your contact.</h2>
+      <div class="agents-grid">
+        <div class="agent-card">
+          <div class="agent-avatar">JD</div>
+          <div class="agent-name">Jordan Dlamini</div>
+          <div class="agent-role">Solutions Consultant</div>
+          <a class="agent-link" href="/ref/jordan/">Book a session →</a>
+        </div>
+        <div class="agent-card">
+          <div class="agent-avatar">SK</div>
+          <div class="agent-name">Sarah Kruger</div>
+          <div class="agent-role">Solutions Consultant</div>
+          <a class="agent-link" href="/ref/sarah/">Book a session →</a>
+        </div>
+        <div class="agent-card">
+          <div class="agent-avatar">MP</div>
+          <div class="agent-name">Marcus Petersen</div>
+          <div class="agent-role">Solutions Consultant</div>
+          <a class="agent-link" href="/ref/marcus/">Book a session →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="rule" style="max-width:1100px;margin:0 auto;"></div>
+  <footer>
+    <div class="footer-logo">Digital Creative Solutions<span>.</span></div>
+    <div class="footer-copy">© 2025 DCS. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>

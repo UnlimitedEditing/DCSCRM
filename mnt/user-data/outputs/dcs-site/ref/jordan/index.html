@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordan Dlamini — Digital Creative Solutions</title>
+  <meta name="description" content="Book a scoping session with Jordan Dlamini at Digital Creative Solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f7f6f2;
+      --ink: #0d0c0a;
+      --ink-2: #4a4843;
+      --ink-3: #9a9894;
+      --rule: #e2e1dc;
+      --accent: #1c6eff;
+      --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ink); font-family: 'Syne', sans-serif; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+    header { border-bottom: 1px solid var(--rule); }
+    .header-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--ink); }
+    .logo span { color: var(--accent); }
+    .header-link { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); text-decoration: none; letter-spacing: 0.1em; }
+    .header-link:hover { color: var(--ink); }
+
+    main { max-width: 900px; margin: 0 auto; padding: 80px 40px 120px; }
+
+    .profile { display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: start; margin-bottom: 72px; padding-bottom: 72px; border-bottom: 1px solid var(--rule); }
+    .avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--rule); border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: var(--ink-2); flex-shrink: 0; }
+    .profile-name { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .profile-role { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; }
+    .profile-bio { font-size: 15px; color: var(--ink-2); line-height: 1.7; max-width: 560px; }
+
+    .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; }
+
+    /* BOOKING */
+    .booking { margin-bottom: 80px; }
+    .booking-title { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .booking-desc { font-size: 14px; color: var(--ink-2); line-height: 1.7; max-width: 480px; margin-bottom: 32px; }
+    .cal-embed { border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; background: var(--white); min-height: 480px; display: flex; align-items: center; justify-content: center; }
+    .cal-placeholder { text-align: center; padding: 60px 40px; }
+    .cal-placeholder-icon { font-size: 32px; margin-bottom: 16px; }
+    .cal-placeholder-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .cal-placeholder-text { font-size: 13px; color: var(--ink-3); line-height: 1.6; max-width: 320px; margin: 0 auto 24px; }
+    .cal-placeholder-code { font-family: 'IBM Plex Mono', monospace; font-size: 11px; background: #f0efe9; border: 1px solid var(--rule); padding: 8px 14px; border-radius: 3px; display: inline-block; color: var(--ink-2); }
+    .cal-placeholder-code span { color: var(--accent); }
+
+    /* WHAT TO EXPECT */
+    .expect { margin-bottom: 80px; padding-bottom: 72px; border-bottom: 1px solid var(--rule); }
+    .expect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .expect-item { padding: 24px; border: 1px solid var(--rule); border-radius: 3px; }
+    .expect-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); margin-bottom: 12px; }
+    .expect-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .expect-text { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+    /* CONTACT */
+    .contact { }
+    .contact-row { display: flex; gap: 20px; flex-wrap: wrap; }
+    .contact-item { display: flex; flex-direction: column; gap: 4px; }
+    .contact-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; }
+    .contact-value { font-size: 14px; font-weight: 500; color: var(--ink); }
+    .contact-value a { color: var(--accent); text-decoration: none; }
+    .contact-value a:hover { text-decoration: underline; }
+
+    footer { border-top: 1px solid var(--rule); }
+    .footer-inner { max-width: 900px; margin: 0 auto; padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer-logo { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--ink-3); }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-3); }
+
+    @media (max-width: 600px) {
+      .header-inner, main { padding-left: 20px; padding-right: 20px; }
+      .profile { grid-template-columns: 1fr; gap: 20px; }
+      .expect-grid { grid-template-columns: 1fr; }
+      .footer-inner { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="/">DCS<span>.</span></a>
+      <a class="header-link" href="/">← All contacts</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="profile">
+      <div class="avatar">JD</div>
+      <div>
+        <div class="profile-name">Jordan Dlamini</div>
+        <div class="profile-role">Solutions Consultant — Digital Creative Solutions</div>
+        <p class="profile-bio">I work with small and medium businesses to unpack operational bottlenecks and identify where custom software can make a real difference. If you have a process that feels like it should be automated — or a system that no longer fits how you work — let's talk.</p>
+      </div>
+    </div>
+
+    <div class="booking">
+      <div class="section-label">Book a session</div>
+      <div class="booking-title">Let's scope your project.</div>
+      <p class="booking-desc">A 30–45 minute conversation. No tech jargon, no pressure. Just the right questions to understand your problem and what it would take to solve it.</p>
+
+      <!-- CAL.COM EMBED — replace the placeholder below -->
+      <!-- To activate: sign up at cal.com, create a 30min event type, paste your embed code here -->
+      <div class="cal-embed">
+        <div class="cal-placeholder">
+          <div class="cal-placeholder-icon">📅</div>
+          <div class="cal-placeholder-title">Calendar coming soon</div>
+          <p class="cal-placeholder-text">Booking integration will be live shortly. In the meantime, reach out directly.</p>
+          <div class="cal-placeholder-code">cal.com/<span>jordan-dcs</span></div>
+        </div>
+      </div>
+      <!-- END CAL.COM EMBED -->
+    </div>
+
+    <div class="expect">
+      <div class="section-label">What to expect</div>
+      <div class="expect-grid">
+        <div class="expect-item">
+          <div class="expect-num">01</div>
+          <div class="expect-title">We ask, you explain</div>
+          <div class="expect-text">Describe the problem in plain language. No need to know the tech — that's our job. The more specific you can be, the better.</div>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">02</div>
+          <div class="expect-title">We capture everything</div>
+          <div class="expect-text">Your data gets passed to our development team for review. Nothing gets lost between the sales conversation and the quote.</div>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">03</div>
+          <div class="expect-title">You get a real assessment</div>
+          <div class="expect-text">Not a vague ballpark. A genuine complexity review — what the system needs to do, and an honest estimate of what it costs to build.</div>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">04</div>
+          <div class="expect-title">No obligation</div>
+          <div class="expect-text">If the quote doesn't fit your budget or timeline, that's fine. We'd rather be honest upfront than waste your time or ours.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact">
+      <div class="section-label">Get in touch directly</div>
+      <div class="contact-row">
+        <div class="contact-item">
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:jordan@digitalcreativesolutions.co.za">jordan@digitalcreativesolutions.co.za</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value"><a href="https://wa.me/27820000001">+27 82 000 0001</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a class="footer-logo" href="/">Digital Creative Solutions<span>.</span></a>
+      <div class="footer-copy">© 2025 DCS</div>
+    </div>
+  </footer>
+
+</body>
+</html>
